@@ -31,4 +31,37 @@ public class PlayerTest {
         player.account.ModifyMoney(100);
         Assert.assertEquals(1100, player.account.GetMoney());
     }
+
+    @Test
+    public void PositionTest() {
+        Player player = new Player("NameTest", 1000);
+        Assert.assertEquals(0, player.GetPosition());
+
+        Assert.assertEquals(false, player.AddToPosition(5));
+        Assert.assertEquals(5, player.GetPosition());
+
+        //loops over to 0 at 24
+        Assert.assertEquals(true, player.AddToPosition(19));
+        Assert.assertEquals(0, player.GetPosition());
+        
+        Assert.assertEquals(false, player.AddToPosition(5));
+        Assert.assertEquals(5, player.GetPosition());
+
+        //loops over to 0 at 24
+        Assert.assertEquals(true, player.AddToPosition(25));
+        Assert.assertEquals(6, player.GetPosition());
+    }
+
+
+        @Test
+    public void PrisonTest() {
+        Player player = new Player("NameTest", 1000);
+        Assert.assertEquals(false, player.isInPrison());
+
+        player.SetPrisonStatus(false);
+        Assert.assertEquals(false, player.isInPrison());
+
+        player.SetPrisonStatus(true);
+        Assert.assertEquals(true, player.isInPrison());
+    }
 }
