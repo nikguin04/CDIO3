@@ -1,7 +1,7 @@
 package com.g16.cdio3;
 
 public class Board {
-    private BoardSquare[] boardSquares = new BoardSquare[] {
+    private static BoardSquare[] boardSquares = new BoardSquare[] {
         new BoardSquare_NonAction("Start"),
         new BoardSquare_Place("Burger Bar", 1, 2),
         new BoardSquare_Place("Pizza Hut", 1, 1),
@@ -28,7 +28,10 @@ public class Board {
         new BoardSquare_Place("The Pier", 4, 22)
     };
 
-    public BoardSquare getSquare(int square) {
+    public static BoardSquare getSquare(int square) {
         return boardSquares[square];
+    }
+    public static int getSquareCount() {
+        return boardSquares.length;
     }
 }

@@ -11,7 +11,8 @@ class BoardSquare_Place implements BoardSquare {
     public final int squarePrice;
     private boolean isOwned;
     private int ownedBy;
-    private int squareTwinPosition;
+    public final int squareTwinPosition;
+    
     public void TileEffect(int playerIndex) {
 
     }
