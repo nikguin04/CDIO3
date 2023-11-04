@@ -2,7 +2,7 @@ package com.g16.cdio3;
 
 
 interface BoardSquare {
-    public String squareName;
+    public String GetSquareName();
     public void TileEffect(int playerIndex);
 }
 
@@ -50,6 +50,9 @@ class BoardSquare_Place implements BoardSquare {
     public boolean isOwned() {
         return isOwned;
     }
+    public String GetSquareName() {
+        return squareName;
+    }
 }
 
 
@@ -58,6 +61,9 @@ class BoardSquare_Chance implements BoardSquare {
 
     public void TileEffect(int playerIndex) {
 
+    }
+    public String GetSquareName() {
+        return "Chance";
     }
 }
 
@@ -69,10 +75,12 @@ class BoardSquare_NonAction implements BoardSquare {
     public BoardSquare_NonAction(String name) {
         squareName = name;
     }
+    public String GetSquareName() {
+        return squareName;
+    }
 }
 
 class BoardSquare_GoJail implements BoardSquare {
-    public String squareName = "Jail";
     public void TileEffect(int playerIndex) {
         // DO NOTHING AS OF YET! we add the money when we move the player, not here 
         Game.players[playerIndex].SetPrisonStatus(true);
@@ -80,5 +88,8 @@ class BoardSquare_GoJail implements BoardSquare {
     }
     public BoardSquare_GoJail() {
 
+    }
+    public String GetSquareName() {
+        return "Go To Jail";
     }
 }

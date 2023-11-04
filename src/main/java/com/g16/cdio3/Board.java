@@ -11,7 +11,7 @@ public class Board {
         new BoardSquare_NonAction("Jail"),
         new BoardSquare_Place("Museum", 2, 8),
         new BoardSquare_Place("Library", 2, 7),
-        new BoardSquare_Chance();
+        new BoardSquare_Chance(),
         new BoardSquare_Place("Skate Park", 2, 11),
         new BoardSquare_Place("Swimming Pool", 2, 10),
         new BoardSquare_NonAction("Free Parking"),
@@ -25,7 +25,7 @@ public class Board {
         new BoardSquare_Place("Zoo", 4, 19),
         new BoardSquare_Chance(),
         new BoardSquare_Place("Water Park", 4, 23),
-        new BoardSquare_Place("The Pier", 4, 22),
+        new BoardSquare_Place("The Pier", 4, 22)
     };
 
     public BoardSquare getSquare(int square) {
