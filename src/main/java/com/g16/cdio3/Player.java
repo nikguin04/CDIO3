@@ -20,6 +20,9 @@ public class Player {
     public String GetName() {
         return name;
     }
+    public String GetColoredName() {
+        return GameData.colorIndex[color].sgr_color_fg + name + GameData.SGR_CLEAR;
+    }
     public void SetName(String _name) {
         name = _name;
     }

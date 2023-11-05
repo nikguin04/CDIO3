@@ -32,9 +32,10 @@ public class Game_SetupPrompt {
                 int scanned = GameData.WaitForInt();
                 if (scanned >= 0 && scanned < GameData.colorIndex.length && !GameData.colorIndex[scanned].chosen) {
                     Color col = GameData.colorIndex[scanned];
-                    System.out.println(player.GetName() + ", You choose the color: " + col.sgr_color_fg + col.name  + "!" + GameData.SGR_CLEAR);
                     player.SetColor(scanned);
                     col.chosen = true;
+                    System.out.println(player.GetColoredName() + ", You choose the color: " + col.sgr_color_fg + col.name  + "!" + GameData.SGR_CLEAR);
+                    System.out.println("");
                 }
             }
         }
