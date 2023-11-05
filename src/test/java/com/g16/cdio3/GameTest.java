@@ -1,18 +1,17 @@
 package com.g16.cdio3;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Locale;
 import java.util.Scanner;
 
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
 
 public class GameTest {
     
     @Test
     public void TestPromptPlayerCount() {
+        Game.players = null;
         provideSystemInput("2\n");
         Game.scanner = new Scanner(System.in);
         Game.scanner.useLocale(Locale.ENGLISH);
