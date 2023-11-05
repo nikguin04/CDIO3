@@ -22,9 +22,18 @@ public class Player {
     public int GetPosition() {
         return position;
     }
-    public boolean AddToPosition(int amount) { // Returns true if player has passed start!
+    public boolean AddToPosition(int amount) { // Returns true if player has passed start!, automatically adds money when pass start
         boolean passStart = position + amount >= Game.tileCount;
         position = (position + amount) % Game.tileCount;
+        if (passStart) {
+            account.ModifyMoney(2);
+        }
+        return passStart;
+    }
+
+    public boolean SetPosition(int place) { // Returns true if player has passed start!, does not automatically add money when pass start
+        boolean passStart = position > place;
+        position = place;
         return passStart;
     }
 
