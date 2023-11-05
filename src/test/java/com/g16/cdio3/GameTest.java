@@ -67,6 +67,21 @@ public class GameTest {
         Assert.assertEquals(16, Game.players[3].account.GetMoney());
     }
 
+    @Test
+    public void TestColorInput() {
+        provideSystemInput("4\n");
+        provideSystemInput("-1\n");
+        provideSystemInput("abc\n");
+        provideSystemInput("2\n");
+        Game.scanner = new Scanner(System.in);
+        Game.scanner.useLocale(Locale.ENGLISH);
+
+        Game.players = new Player[] {new Player("Player 1", 10)};
+        Game_SetupPrompt.Prompt_PlayerColors();
+
+        Assert.assertEquals(2, Game.players[0].GetColor());
+    }
+
     void provideSystemInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);

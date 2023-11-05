@@ -1,11 +1,15 @@
 package com.g16.cdio3;
 
+
+
+
+
 public class Player {
     private String name;
     public final Account account;
     private int position=0;
     private boolean isInPrison;
-    private int color=-1; // 0 = Black, 1 = Blue, 2 = Green, 3 = Yellow
+    private int color=-1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
 
     public Player (String _name, int _money) {
         name = _name;

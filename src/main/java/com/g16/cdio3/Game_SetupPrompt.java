@@ -19,7 +19,21 @@ public class Game_SetupPrompt {
         System.out.println("Please choose a color for all players:");
 
         for (int i = 0; i < Game.players.length; i++) {
-            
+            Player player = Game.players[i];
+            System.out.println("Please choose a color for: " + player.GetName());
+            System.out.println("Please input a number according to the available colors:");
+            for (Color col: GameData.colorIndex) {
+                System.out.println((col.chosen ? GameData.SGR_STRIKETHROUGH: "") + col.sgr_color_fg + "[" + col.index + "] " + col.name + GameData.SGR_CLEAR);
+            }
+            while (player.GetColor() == -1) {
+                int scanned = Game.scanner.nextInt();
+                if (scanned >= 0 && scanned < GameData.colorIndex.length && !GameData.colorIndex[scanned].chosen) {
+                    Color col = GameData.colorIndex[scanned];
+                    System.out.println(player.GetName() + ", You choose the color: " + col.sgr_color_fg + col.name  + "!" + GameData.SGR_CLEAR);
+                    player.SetColor(scanned);
+                    col.chosen = true;
+                }
+            }
         }
     }
 }
