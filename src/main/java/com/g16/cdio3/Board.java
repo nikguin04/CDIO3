@@ -24,8 +24,8 @@ public class Board {
         new BoardSquare_Place("Bowling Alley", 4, 20, "Dark Green", GameData.escapeChar + "[32m"),
         new BoardSquare_Place("Zoo", 4, 19, "Dark Green", GameData.escapeChar + "[32m"),
         new BoardSquare_Chance(),
-        new BoardSquare_Place("Water Park", 4, 23, "Dark Blue", GameData.escapeChar + "[34m"),
-        new BoardSquare_Place("The Pier", 4, 22, "Dark Blue", GameData.escapeChar + "[34m")
+        new BoardSquare_Place("Water Park", 5, 23, "Dark Blue", GameData.escapeChar + "[34m"),
+        new BoardSquare_Place("The Pier", 5, 22, "Dark Blue", GameData.escapeChar + "[34m")
     };
 
     public static BoardSquare getSquare(int square) {
