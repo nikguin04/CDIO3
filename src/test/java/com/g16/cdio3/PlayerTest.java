@@ -64,4 +64,14 @@ public class PlayerTest {
         player.SetPrisonStatus(true);
         Assert.assertEquals(true, player.isInPrison());
     }
+
+    @Test
+    public void TestColorSetting() {
+        Player player = new Player("NameTest", 1000);
+        Assert.assertEquals(-1, player.GetColor());
+        Assert.assertTrue(player.SetColor(2));
+        Assert.assertEquals(2, player.GetColor());
+        Assert.assertFalse(player.SetColor(1));
+
+    }
 }

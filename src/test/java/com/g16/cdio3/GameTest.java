@@ -17,7 +17,7 @@ public class GameTest {
         Game.scanner = new Scanner(System.in);
         Game.scanner.useLocale(Locale.ENGLISH);
 
-        Game.Prompt_PlayerCount();
+        Game_SetupPrompt.Prompt_PlayerCount();
 
         Assert.assertEquals(2, Game.players.length);
 
@@ -37,7 +37,7 @@ public class GameTest {
         Game.scanner.useLocale(Locale.ENGLISH);
 
         Game.players = null;
-        Game.Prompt_PlayerCount();
+        Game_SetupPrompt.Prompt_PlayerCount();
         Assert.assertEquals(2, Game.players.length);
         Assert.assertEquals("Player 1", Game.players[0].GetName());
         Assert.assertEquals("Player 2", Game.players[1].GetName());
@@ -45,7 +45,7 @@ public class GameTest {
         Assert.assertEquals(20, Game.players[1].account.GetMoney());
 
         Game.players = null;
-        Game.Prompt_PlayerCount();
+        Game_SetupPrompt.Prompt_PlayerCount();
         Assert.assertEquals(3, Game.players.length);
         Assert.assertEquals("Player 1", Game.players[0].GetName());
         Assert.assertEquals("Player 2", Game.players[1].GetName());
@@ -55,7 +55,7 @@ public class GameTest {
         Assert.assertEquals(18, Game.players[2].account.GetMoney());
 
         Game.players = null;
-        Game.Prompt_PlayerCount();
+        Game_SetupPrompt.Prompt_PlayerCount();
         Assert.assertEquals(4, Game.players.length);
         Assert.assertEquals("Player 1", Game.players[0].GetName());
         Assert.assertEquals("Player 2", Game.players[1].GetName());

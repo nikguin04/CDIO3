@@ -5,6 +5,7 @@ public class Player {
     public final Account account;
     private int position=0;
     private boolean isInPrison;
+    private int color=-1; // 0 = Black, 1 = Blue, 2 = Green, 3 = Yellow
 
     public Player (String _name, int _money) {
         name = _name;
@@ -42,5 +43,17 @@ public class Player {
     }
     public void SetPrisonStatus(boolean status) {
         isInPrison = status;
+    }
+
+    public boolean SetColor(int _color) {
+        if (color == -1) {
+            color = _color;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public int GetColor() {
+        return color;
     }
 }
