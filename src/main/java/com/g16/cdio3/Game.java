@@ -10,6 +10,8 @@ public class Game {
 
     public static void main(String[] args) {
         InitializeGame();
+
+        StartGame();
     }
 
     public static void InitializeGame() {
@@ -17,6 +19,11 @@ public class Game {
         scanner.useLocale(Locale.ENGLISH);
         Game_SetupPrompt.Prompt_PlayerCount();
         Game_SetupPrompt.Prompt_PlayerColors();
+    }
+
+
+    public static void StartGame() {
+        Game_Functions.PrintGame();
     }
 
 

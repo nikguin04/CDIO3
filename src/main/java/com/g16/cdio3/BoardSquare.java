@@ -12,16 +12,20 @@ class BoardSquare_Place implements BoardSquare {
     private boolean isOwned;
     private int ownedBy;
     public final int squareTwinPosition;
+    public final String color;
+    public final String sgr_color_fg;
     
     public void TileEffect(int playerIndex) {
 
     }
-    public BoardSquare_Place(String _name, int _price, int _squareTwinPosition) {
+    public BoardSquare_Place(String _name, int _price, int _squareTwinPosition, String _color, String _sgr_color_fg) {
         squareName = _name;
         squarePrice = _price;
         isOwned = false;
         ownedBy = -1;
         squareTwinPosition = _squareTwinPosition;
+        color = _color;
+        sgr_color_fg = _sgr_color_fg;
     }
 
     public boolean SetOwner(int player) {

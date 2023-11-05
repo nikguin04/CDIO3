@@ -21,7 +21,7 @@ class Color {
 }
 
 public class GameData { // https://ss64.com/nt/syntax-ansi.html
-    private static char escapeChar = (char)27;
+    public static char escapeChar = (char)27;
     public static Color[] colorIndex = {
         new Color(0, "Red", false, escapeChar + "[31m", escapeChar + "[41m"),
         new Color(1, "Blue", false, escapeChar + "[34m", escapeChar + "[44m"),
