@@ -1,10 +1,13 @@
 package com.g16.cdio3;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Game_SetupPrompt {
     public static void Prompt_PlayerCount() {
         System.out.println("Please input number of players [2-4]");
         while (Game.players == null) { // players have not been set yet, so loop
-            int playerCount = Game.scanner.nextInt();
+            int playerCount = GameData.WaitForInt();
             if (playerCount >= 2 && playerCount <= 4) { // Correct player count entered
                 Game.players = new Player[playerCount];
                 int startMoney = 20 - (playerCount-2) * 2; // 2 = 20, 3 = 18, 4 = 16
@@ -26,7 +29,7 @@ public class Game_SetupPrompt {
                 System.out.println((col.chosen ? GameData.SGR_STRIKETHROUGH: "") + col.sgr_color_fg + "[" + col.index + "] " + col.name + GameData.SGR_CLEAR);
             }
             while (player.GetColor() == -1) {
-                int scanned = Game.scanner.nextInt();
+                int scanned = GameData.WaitForInt();
                 if (scanned >= 0 && scanned < GameData.colorIndex.length && !GameData.colorIndex[scanned].chosen) {
                     Color col = GameData.colorIndex[scanned];
                     System.out.println(player.GetName() + ", You choose the color: " + col.sgr_color_fg + col.name  + "!" + GameData.SGR_CLEAR);
@@ -36,4 +39,5 @@ public class Game_SetupPrompt {
             }
         }
     }
+
 }

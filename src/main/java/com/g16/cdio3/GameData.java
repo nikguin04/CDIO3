@@ -1,5 +1,8 @@
 package com.g16.cdio3;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class Color {
     
     int index;
@@ -28,4 +31,14 @@ public class GameData { // https://ss64.com/nt/syntax-ansi.html
 
     public static final String SGR_CLEAR = escapeChar + "[m";
     public static final String SGR_STRIKETHROUGH = escapeChar + "[9m";
+
+    public static int WaitForInt() {
+        while (true) {
+            String ln = Game.scanner.nextLine();
+            Matcher m = Pattern.compile("^([0-9]*)$", 0).matcher(ln);
+                if (ln != "" && m.find()) {
+                    return Integer.valueOf(m.group(1));
+                }
+        }
+    }
 }
