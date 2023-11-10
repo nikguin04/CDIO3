@@ -65,7 +65,7 @@ class BoardSquare_Place implements BoardSquare {
 class BoardSquare_Chance implements BoardSquare {
 
     public void TileEffect(int playerIndex) {
-
+        
     }
     public String GetSquareName() {
         return "Chance";
