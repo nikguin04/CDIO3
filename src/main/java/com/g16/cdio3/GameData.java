@@ -32,6 +32,12 @@ public class GameData { // https://ss64.com/nt/syntax-ansi.html
     public static final String SGR_CLEAR = escapeChar + "[m";
     public static final String SGR_STRIKETHROUGH = escapeChar + "[9m";
 
+    public static void ClearScreen() {
+        System.out.print(escapeChar+"[H");// JUMP TO TOP OF SCREEN
+        System.out.print(escapeChar+"[2J");// CLEAR SCREEN
+        System.out.flush();  
+    }
+
     public static int WaitForInt() {
         while (true) {
             String ln = Game.scanner.nextLine();

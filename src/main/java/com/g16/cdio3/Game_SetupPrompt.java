@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class Game_SetupPrompt {
     public static void Prompt_PlayerCount() {
+        GameData.ClearScreen();
         System.out.println("Please input number of players [2-4]");
         while (Game.players == null) { // players have not been set yet, so loop
             int playerCount = GameData.WaitForInt();
@@ -19,9 +20,11 @@ public class Game_SetupPrompt {
     }
 
     public static void Prompt_PlayerColors() {
+        GameData.ClearScreen();
         System.out.println("Please choose a color for all players:");
 
         for (int i = 0; i < Game.players.length; i++) {
+            
             Player player = Game.players[i];
             System.out.println("Please choose a color for: " + player.GetName());
             System.out.println("Please input a number according to the available colors:");
@@ -34,8 +37,8 @@ public class Game_SetupPrompt {
                     Color col = GameData.colorIndex[scanned];
                     player.SetColor(scanned);
                     col.chosen = true;
+                    GameData.ClearScreen();
                     System.out.println(player.GetColoredName() + ", You choose the color: " + col.sgr_color_fg + col.name  + "!" + GameData.SGR_CLEAR);
-                    System.out.println("");
                 }
             }
         }

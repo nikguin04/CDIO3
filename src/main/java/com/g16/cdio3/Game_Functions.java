@@ -3,7 +3,7 @@ package com.g16.cdio3;
 public class Game_Functions {
     
     public static void PrintGame() {
-
+        GameData.ClearScreen();
         for (int i = 0; i < Board.getSquareCount(); i++) {
             BoardSquare square = Board.getSquare(i);
             if (square.getClass() == BoardSquare_Place.class) {
