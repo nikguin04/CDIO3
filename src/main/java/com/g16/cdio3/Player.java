@@ -69,4 +69,9 @@ public class Player {
         this.account.ModifyMoney(-boardsquare.squarePrice);
         boardsquare.SetOwner(this.color);
     }
+
+    public void payRent(int moneyToPay, Player playerToPayTo) {
+        this.account.ModifyMoney(-moneyToPay);
+        playerToPayTo.account.ModifyMoney(moneyToPay);
+    }
 }
