@@ -66,6 +66,7 @@ public class Player {
     }
     
     public void buyProperty(BoardSquare_Place boardsquare) {
+        this.account.ModifyMoney(-boardsquare.squarePrice);
         boardsquare.SetOwner(this.color);
     }
 }
