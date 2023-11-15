@@ -60,7 +60,12 @@ public class Player {
             return false;
         }
     }
+
     public int GetColor() {
         return color;
+    }
+    
+    public void buyProperty(BoardSquare_Place boardsquare) {
+        boardsquare.SetOwner(this.color);
     }
 }
