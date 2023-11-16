@@ -16,8 +16,19 @@ class BoardSquare_Place implements BoardSquare {
     public final String sgr_color_fg;
     
     public void TileEffect(int playerIndex) {
-        BoardSquare_Chance BoardSquareChance = new BoardSquare_Chance();
-            BoardSquareChance.TileEffect(playerIndex);
+        BoardSquare_Chance chanceSquare = new BoardSquare_Chance();
+        BoardSquare_NonAction nonActionSquare = new BoardSquare_NonAction(squareName);
+        BoardSquare_GoJail goJailSquare = new BoardSquare_GoJail();
+
+        if(squareName == "Chance"){
+            chanceSquare.TileEffect(playerIndex);
+        }
+        else if(squareName =="Go To Jail"){
+            goJailSquare.TileEffect(playerIndex);
+        }
+        else{
+            nonActionSquare.TileEffect(playerIndex);
+        }
     }
     public BoardSquare_Place(String _name, int _price, int _squareTwinPosition, String _color, String _sgr_color_fg) {
         squareName = _name;
