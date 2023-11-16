@@ -87,9 +87,10 @@ class BoardSquare_NonAction implements BoardSquare {
 
 class BoardSquare_GoJail implements BoardSquare {
     public void TileEffect(int playerIndex) {
-        // DO NOTHING AS OF YET! we add the money when we move the player, not here 
+        // DO NOTHING AS OF YET! we add the money when we move the player, not here
         Game.players[playerIndex].SetPrisonStatus(true);
-        Game.players[playerIndex].AddToPosition(12);
+        Game.players[playerIndex].SetPosition(6);
+
     }
     public BoardSquare_GoJail() {
 
