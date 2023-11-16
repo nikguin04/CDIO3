@@ -76,8 +76,8 @@ public class Player {
         this.account.ModifyMoney(-squareToBuy.squarePrice);
     }
 
-    public void payRent(int moneyToPay, int playerIndex) {
+    public void payRent(int moneyToPay, int playerToPayIndex) {
         this.account.ModifyMoney(-moneyToPay);
-        Game.players[playerIndex].account.ModifyMoney(moneyToPay);
+        Game.players[playerToPayIndex].account.ModifyMoney(moneyToPay);
     }
 }
