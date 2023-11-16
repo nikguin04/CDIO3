@@ -16,7 +16,8 @@ class BoardSquare_Place implements BoardSquare {
     public final String sgr_color_fg;
     
     public void TileEffect(int playerIndex) {
-
+        BoardSquare_Chance BoardSquareChance = new BoardSquare_Chance();
+            BoardSquareChance.TileEffect(playerIndex);
     }
     public BoardSquare_Place(String _name, int _price, int _squareTwinPosition, String _color, String _sgr_color_fg) {
         squareName = _name;
@@ -65,7 +66,7 @@ class BoardSquare_Place implements BoardSquare {
 class BoardSquare_Chance implements BoardSquare {
 
     public void TileEffect(int playerIndex) {
-        
+
     }
     public String GetSquareName() {
         return "Chance";
