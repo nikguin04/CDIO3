@@ -5,10 +5,15 @@ public class Account{
     public int GetMoney() {
         return Money;
     }
-    public void ModifyMoney(int _money) {
+    public boolean ModifyMoney(int _money) { // return false if player has lost and true otherwise.
         Money += _money;
-        if(Money < 0) 
+        if (Money < 0) {
             Money = 0;
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public Account(int startMoney) {
