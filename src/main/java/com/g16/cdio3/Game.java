@@ -28,16 +28,21 @@ public class Game {
     public static void StartGame() {
         GameData.ClearScreen();
         Game_Functions.PrintGame();
+        Game_Functions.PrintScoreBoard();
         Dice dice = new Dice(1, 6);
         while (!gameOver) {
             for (int i = 0; i < players.length; i++) {
-
+            
                 Player p = players[i];
-
+                
                 System.out.println(p.GetColoredName()+" press enter to roll the dice!");
                 scanner.nextLine();
                 GameData.ClearRestOfScreen();
-
+                
+                if (p.isInPrison()) {
+                    p.account.ModifyMoney(-1);
+                    System.out.println("You are in jail, you paid 1$ to get out.");
+                }
                 Dice.DiceThrow dt = dice.DiceThrow();
                 System.out.print(p.GetColoredName()+" rolled "+ dt.addedResult);
                 
@@ -49,6 +54,7 @@ public class Game {
                 if (!gameOver) {
                     GameData.GotoTopOfScreen();
                     Game_Functions.PrintGame();
+                    Game_Functions.PrintScoreBoard();
                 } else {
                     break;
                 }
