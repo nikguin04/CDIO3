@@ -11,7 +11,7 @@ public class Player {
     public Player(String _name, int _money) {
         name = _name;
         account = new Account(_money);
-        playerId = Game.players.length;
+        playerId = (Game.players != null) ? Game.players.length : 0;
 
     }
 

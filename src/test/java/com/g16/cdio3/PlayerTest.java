@@ -77,7 +77,6 @@ public class PlayerTest {
     // Test for the buyProperty method in Player
     @Test
     public void buyPropertyTest() {
-        Game.players = new Player[0];
         Player player = new Player("ThisIsAName", 20);
 
         BoardSquare_Place propertyToBuy = new BoardSquare_Place("Candy Store", 1, 5, "Bright Blue",
