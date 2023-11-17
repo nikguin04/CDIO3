@@ -33,9 +33,7 @@ public class Game_Functions {
     }
 
 
-
-
-    public static final int scoreBoardOffset = 30;
+    public static final int scoreBoardOffset = 45;
     public static void PrintScoreBoard() {
         System.out.print(GameData.escapeChar + "[s"); // Save cursor position
         System.out.print(GameData.escapeChar + "[H"); // Home cursor
