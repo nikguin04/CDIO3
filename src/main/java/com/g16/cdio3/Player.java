@@ -76,11 +76,11 @@ public class Player {
         // Set owner of boardSquare
         squareToBuy.SetOwner(this.playerId);
 
-        // Remove money from player
-        this.account.ModifyMoney(-squareToBuy.squarePrice);
-
         System.out.println("You just bought " + squareToBuy.GetSquareName() + " for: " + squareToBuy.squarePrice + "$");
         // System.out.println("Your account balance is now: " + this.account.GetMoney());
+
+        // Remove money from player
+        this.account.ModifyMoney(-squareToBuy.squarePrice);
     }
 
     public void payRent(BoardSquare_Place currentSquare) {

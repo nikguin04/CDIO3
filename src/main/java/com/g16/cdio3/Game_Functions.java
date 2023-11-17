@@ -41,7 +41,7 @@ public class Game_Functions {
         for (int i = 0; i < Game.players.length; i++) {
             Player p = Game.players[i];
             System.out.print(GameData.escapeChar + "[" + scoreBoardOffset + "G"); // Move cursor to scoreBoardOffset on current line
-            System.out.println(p.GetColoredName() + " $" + p.account.GetMoney());
+            System.out.println(p.GetColoredName() + " $" + p.account.GetMoney() + " ".repeat(10)); // Money printout, and space padding for deleting old values
         }
 
         System.out.print(GameData.escapeChar + "[u"); // Return cursor to saved state
