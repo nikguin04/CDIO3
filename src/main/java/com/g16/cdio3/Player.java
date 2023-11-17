@@ -1,28 +1,28 @@
 package com.g16.cdio3;
 
-
-
-
-
 public class Player {
     private String name;
     public final Account account;
-    private int position=0;
+    private int position = 0;
     private boolean isInPrison;
-    private int color=-1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
+    private int color = -1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
+    public final int playerId;
 
-    public Player (String _name, int _money) {
+    public Player(String _name, int _money) {
         name = _name;
         account = new Account(_money);
-    }
+        playerId = (Game.players != null) ? Game.players.length : 0;
 
+    }
 
     public String GetName() {
         return name;
     }
+
     public String GetColoredName() {
         return GameData.colorIndex[color].sgr_color_fg + name + GameData.SGR_CLEAR;
     }
+
     public void SetName(String _name) {
         name = _name;
     }
@@ -30,7 +30,9 @@ public class Player {
     public int GetPosition() {
         return position;
     }
-    public boolean AddToPosition(int amount) { // Returns true if player has passed start!, automatically adds money when pass start
+
+    public boolean AddToPosition(int amount) { // Returns true if player has passed start!, automatically adds money
+                                               // when pass start
         boolean passStart = position + amount >= Board.getSquareCount();
         position = (position + amount) % Board.getSquareCount();
         if (passStart) {
@@ -39,7 +41,8 @@ public class Player {
         return passStart;
     }
 
-    public boolean SetPosition(int place) { // Returns true if player has passed start!, does not automatically add money when pass start
+    public boolean SetPosition(int place) { // Returns true if player has passed start!, does not automatically add
+                                            // money when pass start
         boolean passStart = position > place;
         position = place;
         return passStart;
@@ -48,6 +51,7 @@ public class Player {
     public boolean isInPrison() {
         return isInPrison;
     }
+
     public void SetPrisonStatus(boolean status) {
         isInPrison = status;
     }
@@ -60,7 +64,40 @@ public class Player {
             return false;
         }
     }
+
     public int GetColor() {
         return color;
+    }
+
+    public void buyProperty(BoardSquare_Place squareToBuy) {
+        // TODO make changes for boardSquare_Place if needed.
+
+        // Set owner of boardSquare
+        squareToBuy.SetOwner(this.playerId);
+
+        // Remove money from player
+        this.account.ModifyMoney(-squareToBuy.squarePrice);
+
+        System.out.println("You just bought " + squareToBuy.GetSquareName() + " for: " + squareToBuy.squarePrice);
+        System.out.println("Your account balance is now: " + this.account.GetMoney());
+    }
+
+    public void payRent(BoardSquare_Place currentSquare) {
+        boolean isTwinOwned = ((BoardSquare_Place) Board.getSquare(currentSquare.squareTwinPosition))
+                .GetOwner() == currentSquare.GetOwner();
+        int moneyToPay = currentSquare.squarePrice;
+        Player playerToPay = Game.players[currentSquare.GetOwner()];
+        if (isTwinOwned) {
+            moneyToPay *= 2;    
+        }
+        
+        this.account.ModifyMoney(-moneyToPay);
+        playerToPay.account.ModifyMoney(moneyToPay);
+
+        System.out.println(
+                this.GetColoredName() + ": You just paid " + moneyToPay + "in rent to " + playerToPay.GetColoredName());
+        System.out.println("Your respective account balances are now: ");
+        System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
+        System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
     }
 }
