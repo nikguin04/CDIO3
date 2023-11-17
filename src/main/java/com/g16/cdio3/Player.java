@@ -95,7 +95,7 @@ public class Player {
         playerToPay.account.ModifyMoney(moneyToPay);
 
         System.out.println(
-                this.GetColoredName() + ": You just paid " + moneyToPay + "in rent to " + playerToPay.GetColoredName());
+                this.GetColoredName() + ": You just paid " + moneyToPay + " in rent to " + playerToPay.GetColoredName());
         System.out.println("Your respective account balances are now: ");
         System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
         System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
