@@ -1,20 +1,39 @@
 package com.g16.cdio3;
 
 public class Game_Functions {
-    
+    private static final int nonPlaceOffset = 3;
     public static void PrintGame() {
-        GameData.ClearScreen();
+        //GameData.ClearScreen();
         for (int i = 0; i < Board.getSquareCount(); i++) {
             BoardSquare square = Board.getSquare(i);
+            System.out.print(getPlayerPos(i) + " "); // Players printout
             if (square.getClass() == BoardSquare_Place.class) {
                 BoardSquare_Place pSquare = (BoardSquare_Place) square;
-                System.out.println(pSquare.sgr_color_fg + pSquare.squareName + " $" + pSquare.squarePrice + GameData.SGR_CLEAR);
+                System.out.print("(" + (!pSquare.isOwned() ? "■" : GameData.colorIndex[Game.players[pSquare.GetOwner()].GetColor()].sgr_color_fg + "■" + GameData.SGR_CLEAR) + ")"); // Print owner of square
+                System.out.println(pSquare.GetColoredName());
             } else {
-                System.out.println(square.GetSquareName());
+                System.out.println(" ".repeat(nonPlaceOffset) +  square.GetSquareName());
             }
             
         }
     }
+
+    private static String getPlayerPos(int pos) {
+        String toret = "|";
+        for (Player p: Game.players) {
+            if (p.GetPosition() == pos) {
+                toret += GameData.colorIndex[p.GetColor()].sgr_color_fg + "■" + GameData.SGR_CLEAR;
+            } else {
+                toret += " ";
+            }
+
+            toret += "|";
+        }
+        return toret;
+    }
+
+
+
 
     public static final int scoreBoardOffset = 30;
     public static void PrintScoreBoard() {

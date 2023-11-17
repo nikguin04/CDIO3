@@ -38,6 +38,14 @@ public class GameData { // https://ss64.com/nt/syntax-ansi.html
         System.out.flush();  
     }
 
+    public static void ClearRestOfScreen() {
+        System.out.print(escapeChar+"[2J");// CLEAR SCREEN
+    }
+
+    public static void GotoTopOfScreen() {
+        System.out.print(escapeChar+"[H");// JUMP TO TOP OF SCREEN
+    }
+
     public static int WaitForInt() {
         while (true) {
             String ln = Game.scanner.nextLine();

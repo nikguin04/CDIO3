@@ -16,7 +16,7 @@ public class ChanceCardsTest {
 
     @Test
     public void TestChanceCardFunctionCall() {
-        Game.players = new Player[] {new Player("p1test", 10)};
+        Game.players = new Player[] {new Player("p1test", 10, 0)};
         Game.players[0].AddToPosition(5);
         Assert.assertEquals(5, Game.players[0].GetPosition());
         Assert.assertEquals(10, Game.players[0].account.GetMoney());

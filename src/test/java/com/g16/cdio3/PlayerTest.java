@@ -9,14 +9,14 @@ public class PlayerTest {
 
     @Test
     public void PlayerCreation() {
-        Player player = new Player("NameTest", 100);
+        Player player = new Player("NameTest", 100, 0);
         Assert.assertEquals("NameTest", player.GetName());
         Assert.assertEquals(100, player.account.GetMoney());
     }
 
     @Test
     public void SetPlayerName() {
-        Player player = new Player("NameTest", 100);
+        Player player = new Player("NameTest", 100, 0);
         Assert.assertEquals("NameTest", player.GetName());
 
         player.SetName("NewName123");
@@ -25,7 +25,7 @@ public class PlayerTest {
 
     @Test
     public void PlayerAccountReferenceTest() {
-        Player player = new Player("NameTest", 1000);
+        Player player = new Player("NameTest", 1000, 0);
         Assert.assertEquals(1000, player.account.GetMoney());
 
         player.account.ModifyMoney(100);
@@ -34,7 +34,7 @@ public class PlayerTest {
 
     @Test
     public void PositionTest() {
-        Player player = new Player("NameTest", 1000);
+        Player player = new Player("NameTest", 1000, 0);
         Assert.assertEquals(0, player.GetPosition());
 
         Assert.assertEquals(false, player.AddToPosition(5));
@@ -54,7 +54,7 @@ public class PlayerTest {
 
     @Test
     public void PrisonTest() {
-        Player player = new Player("NameTest", 1000);
+        Player player = new Player("NameTest", 1000, 0);
         Assert.assertEquals(false, player.isInPrison());
 
         player.SetPrisonStatus(false);
@@ -66,7 +66,7 @@ public class PlayerTest {
 
     @Test
     public void TestColorSetting() {
-        Player player = new Player("NameTest", 1000);
+        Player player = new Player("NameTest", 1000, 0);
         Assert.assertEquals(-1, player.GetColor());
         Assert.assertTrue(player.SetColor(2));
         Assert.assertEquals(2, player.GetColor());
@@ -77,7 +77,7 @@ public class PlayerTest {
     // Test for the buyProperty method in Player
     @Test
     public void buyPropertyTest() {
-        Player player = new Player("ThisIsAName", 20);
+        Player player = new Player("ThisIsAName", 20, 0);
 
         BoardSquare_Place propertyToBuy = new BoardSquare_Place("Candy Store", 1, 5, "Bright Blue",
                 GameData.escapeChar + "[94m");

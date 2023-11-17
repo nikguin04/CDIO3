@@ -35,6 +35,10 @@ class BoardSquare_Place implements BoardSquare {
         sgr_color_fg = _sgr_color_fg;
     }
 
+    public String GetColoredName() {
+        return this.sgr_color_fg + this.squareName + " $" + this.squarePrice + GameData.SGR_CLEAR;
+    }
+
     public boolean SetOwner(int player) {
         if (!isOwned) {
             isOwned = true;
