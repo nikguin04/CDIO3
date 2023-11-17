@@ -6,10 +6,13 @@ public class Player {
     private int position = 0;
     private boolean isInPrison;
     private int color = -1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
+    public final int playerId;
 
     public Player(String _name, int _money) {
         name = _name;
         account = new Account(_money);
+        playerId = Game.players.length;
+
     }
 
     public String GetName() {
@@ -76,8 +79,16 @@ public class Player {
         this.account.ModifyMoney(-squareToBuy.squarePrice);
     }
 
-    public void payRent(int moneyToPay, int playerToPayIndex) {
+    public void payRent(BoardSquare_Place currentSquare) {
+        boolean isTwinOwned = ((BoardSquare_Place) Board.getSquare(currentSquare.squareTwinPosition))
+                .GetOwner() == currentSquare.GetOwner();
+        int moneyToPay = currentSquare.squarePrice;
+        int playerToPay = currentSquare.GetOwner();
+        if (isTwinOwned) {
+            moneyToPay *= 2;    
+        }
+        
         this.account.ModifyMoney(-moneyToPay);
-        Game.players[playerToPayIndex].account.ModifyMoney(moneyToPay);
+        Game.players[playerToPay].account.ModifyMoney(moneyToPay);
     }
 }
