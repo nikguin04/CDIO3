@@ -7,6 +7,7 @@ public class Player {
     private boolean isInPrison;
     private int color = -1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
     public final int playerId;
+    private int propertyValue=0;
 
     public Player(String _name, int _money, int _playerId) {
         name = _name;
@@ -103,5 +104,27 @@ public class Player {
         // System.out.println("Your respective account balances are now: ");
         // System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
         // System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
+    }
+
+    public int GetPropertyValue() {
+        return propertyValue;
+    }
+
+    protected void SetPropertyValue(int _pvalue) {
+        // ONLY USE THIS FOR TESTING!
+        propertyValue = _pvalue;
+    }
+ 
+    public void UpdatePropertyValue() {
+        propertyValue = 0;
+        for (int i = 0; i < Board.getSquareCount(); i++) {
+            BoardSquare bs = Board.getSquare(i);
+            if (bs.getClass() == BoardSquare_Place.class) {
+                BoardSquare_Place bsp = (BoardSquare_Place) bs;
+                if (bsp.GetOwner() == playerId) {
+                    propertyValue += bsp.squarePrice;
+                }
+            }
+        }
     }
 }

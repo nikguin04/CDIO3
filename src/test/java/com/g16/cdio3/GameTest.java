@@ -1,11 +1,14 @@
 package com.g16.cdio3;
 
 import java.io.ByteArrayInputStream;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.g16.cdio3.Game.SortByMoney;
 
 public class GameTest {
     
@@ -84,5 +87,62 @@ public class GameTest {
     void provideSystemInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
         System.setIn(testIn);
+    }
+
+    @Test
+    public void TestSortPropertyValueLogic() {
+        Player p1 = new Player("P1", 100, 0);
+        p1.SetPropertyValue(100);
+        
+        Player p2 = new Player("P2", 100, 1);
+        p2.SetPropertyValue(120);
+
+        Player p3 = new Player("P3", 100, 2);
+        p3.SetPropertyValue(90);
+
+        Player[] arr = new Player[] {p1,p2,p3};
+        Arrays.sort(arr, new Game.SortByMoney());
+
+        Assert.assertEquals(arr[0].playerId, 1);
+        Assert.assertEquals(arr[1].playerId, 0);
+        Assert.assertEquals(arr[2].playerId, 2);
+    }
+
+    @Test
+    public void TestSortMoneyLogic() {
+        Player p1 = new Player("P1", 200, 0);
+        p1.SetPropertyValue(100);
+        
+        Player p2 = new Player("P2", 100, 1);
+        p2.SetPropertyValue(120);
+
+        Player p3 = new Player("P3", 400, 2);
+        p3.SetPropertyValue(90);
+
+        Player[] arr = new Player[] {p1,p2,p3};
+        Arrays.sort(arr, new Game.SortByMoney());
+
+        Assert.assertEquals(arr[0].playerId, 2);
+        Assert.assertEquals(arr[1].playerId, 0);
+        Assert.assertEquals(arr[2].playerId, 1);
+    }
+
+    @Test
+    public void TestConflictWinLogic() {
+        Player p1 = new Player("P1", 100, 0);
+        p1.SetPropertyValue(100);
+        
+        Player p2 = new Player("P2", 100, 1);
+        p2.SetPropertyValue(120);
+
+        Player p3 = new Player("P3", 40, 2);
+        p3.SetPropertyValue(200);
+
+        Player[] arr = new Player[] {p1,p2,p3};
+        Arrays.sort(arr, new Game.SortByMoney());
+
+        Assert.assertEquals(arr[0].playerId, 1);
+        Assert.assertEquals(arr[1].playerId, 0);
+        Assert.assertEquals(arr[2].playerId, 2);
     }
 }

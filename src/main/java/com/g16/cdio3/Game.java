@@ -1,5 +1,7 @@
 package com.g16.cdio3;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -48,8 +50,25 @@ public class Game {
             }
         }
     }
+
+    static class SortByMoney implements Comparator<Player> {
+        public int compare(Player a, Player b)
+        {
+            // Check if money is equal, if not, then return the money difference, if equal, return property value difference
+            return (a.account.GetMoney() != b.account.GetMoney()) ? b.account.GetMoney() - a.account.GetMoney() : b.GetPropertyValue() - a.GetPropertyValue();
+        }
+    }
     public static void LoseGame(int playerIndex){
-        Player lostPlayer = players[playerIndex];
+        Player[] pArray = new Player[Game.players.length];
+        for (int i = 0; i < Game.players.length; i++) {
+            Player p = Game.players[i];
+            p.UpdatePropertyValue();
+            pArray[i] = p;  
+        }
+    
+        
+        Arrays.sort(pArray, new SortByMoney());
         
     }
+
 }
