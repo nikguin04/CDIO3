@@ -16,7 +16,13 @@ class BoardSquare_Place implements BoardSquare {
     public final String sgr_color_fg;
 
     public void TileEffect(int playerIndex) {
-
+        Player player = Game.players[playerIndex];
+        if(isOwned){
+            player.payRent(this);
+        }
+        else{
+            player.buyProperty(this);
+        }
     }
 
     public BoardSquare_Place(String _name, int _price, int _squareTwinPosition, String _color, String _sgr_color_fg) {
