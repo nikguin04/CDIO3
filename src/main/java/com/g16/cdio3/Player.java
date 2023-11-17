@@ -71,24 +71,33 @@ public class Player {
 
     public void buyProperty(BoardSquare_Place squareToBuy) {
         // TODO make changes for boardSquare_Place if needed.
-        
+
         // Set owner of boardSquare
         squareToBuy.SetOwner(this.playerId);
 
         // Remove money from player
         this.account.ModifyMoney(-squareToBuy.squarePrice);
+
+        System.out.println("You just bought " + squareToBuy.GetSquareName() + " for: " + squareToBuy.squarePrice);
+        System.out.println("Your account balance is now: " + this.account.GetMoney());
     }
 
     public void payRent(BoardSquare_Place currentSquare) {
         boolean isTwinOwned = ((BoardSquare_Place) Board.getSquare(currentSquare.squareTwinPosition))
                 .GetOwner() == currentSquare.GetOwner();
         int moneyToPay = currentSquare.squarePrice;
-        int playerToPay = currentSquare.GetOwner();
+        Player playerToPay = Game.players[currentSquare.GetOwner()];
         if (isTwinOwned) {
             moneyToPay *= 2;    
         }
         
         this.account.ModifyMoney(-moneyToPay);
-        Game.players[playerToPay].account.ModifyMoney(moneyToPay);
+        playerToPay.account.ModifyMoney(moneyToPay);
+
+        System.out.println(
+                this.GetColoredName() + ": You just paid " + moneyToPay + "in rent to " + playerToPay.GetColoredName());
+        System.out.println("Your respective account balances are now: ");
+        System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
+        System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
     }
 }
