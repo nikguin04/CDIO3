@@ -49,6 +49,7 @@ public class Game {
         }
     }
     public static void LoseGame(int playerIndex){
+        Player lostPlayer = players[playerIndex];
         
     }
 }
