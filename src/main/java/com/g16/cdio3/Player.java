@@ -78,8 +78,8 @@ public class Player {
         // Remove money from player
         this.account.ModifyMoney(-squareToBuy.squarePrice);
 
-        System.out.println("You just bought " + squareToBuy.GetSquareName() + " for: " + squareToBuy.squarePrice);
-        System.out.println("Your account balance is now: " + this.account.GetMoney());
+        System.out.println("You just bought " + squareToBuy.GetSquareName() + " for: " + squareToBuy.squarePrice + "$");
+        // System.out.println("Your account balance is now: " + this.account.GetMoney());
     }
 
     public void payRent(BoardSquare_Place currentSquare) {
@@ -100,8 +100,8 @@ public class Player {
 
         System.out.println(
                 this.GetColoredName() + ": You just paid " + moneyToPay + "$" + " in rent to " + playerToPay.GetColoredName());
-        System.out.println("Your respective account balances are now: ");
-        System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
-        System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
+        // System.out.println("Your respective account balances are now: ");
+        // System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
+        // System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
     }
 }
