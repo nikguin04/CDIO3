@@ -48,6 +48,7 @@ public class Game {
             }
         }
     }
-
-
+    public static void LoseGame(int playerIndex){
+        
+    }
 }

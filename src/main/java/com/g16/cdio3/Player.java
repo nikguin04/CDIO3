@@ -10,7 +10,7 @@ public class Player {
 
     public Player(String _name, int _money, int _playerId) {
         name = _name;
-        account = new Account(_money);
+        account = new Account(_money, _playerId);
         playerId = _playerId;
 
     }
