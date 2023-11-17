@@ -27,4 +27,15 @@ public class BoardTest {
         Assert.assertEquals(2, square.squareTwinPosition);
     }
 
+    @Test
+    public void TestBoardSquareTwinsClasses() {
+        for (int i = 0; i < Board.getSquareCount(); i++) {
+            BoardSquare sq = Board.getSquare(i);
+            if (sq.getClass() == BoardSquare_Place.class) {
+                BoardSquare_Place place_sq = (BoardSquare_Place) sq;
+                Assert.assertEquals(Board.getSquare(place_sq.squareTwinPosition).getClass(), BoardSquare_Place.class);
+            }
+        }
+    }
+
 }
