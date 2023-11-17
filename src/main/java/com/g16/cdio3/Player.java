@@ -7,10 +7,11 @@ public class Player {
     private boolean isInPrison;
     private int color = -1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
     public final int playerId;
+    private int propertyValue=0;
 
     public Player(String _name, int _money, int _playerId) {
         name = _name;
-        account = new Account(_money);
+        account = new Account(_money, _playerId);
         playerId = _playerId;
 
     }
@@ -94,14 +95,37 @@ public class Player {
         if (isTwinOwned) {
             moneyToPay *= 2; 
         }
-        
-        this.account.ModifyMoney(-moneyToPay);
-        playerToPay.account.ModifyMoney(moneyToPay);
+    
 
         System.out.println(
                 this.GetColoredName() + ": You just paid " + moneyToPay + "$" + " in rent to " + playerToPay.GetColoredName());
         // System.out.println("Your respective account balances are now: ");
         // System.out.println(this.GetColoredName() + ": " + this.account.GetMoney());
         // System.out.println(playerToPay.GetColoredName() + ": " + playerToPay.account.GetMoney());
+
+                this.account.ModifyMoney(-moneyToPay);
+        playerToPay.account.ModifyMoney(moneyToPay);
+    }
+
+    public int GetPropertyValue() {
+        return propertyValue;
+    }
+
+    protected void SetPropertyValue(int _pvalue) {
+        // ONLY USE THIS FOR TESTING!
+        propertyValue = _pvalue;
+    }
+ 
+    public void UpdatePropertyValue() {
+        propertyValue = 0;
+        for (int i = 0; i < Board.getSquareCount(); i++) {
+            BoardSquare bs = Board.getSquare(i);
+            if (bs.getClass() == BoardSquare_Place.class) {
+                BoardSquare_Place bsp = (BoardSquare_Place) bs;
+                if (bsp.GetOwner() == playerId) {
+                    propertyValue += bsp.squarePrice;
+                }
+            }
+        }
     }
 }

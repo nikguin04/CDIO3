@@ -39,7 +39,7 @@ public class GameData { // https://ss64.com/nt/syntax-ansi.html
     }
 
     public static void ClearRestOfScreen() {
-        System.out.print(escapeChar+"[2J");// CLEAR SCREEN
+        System.out.print(escapeChar+"[0J");// CLEAR SCREEN
     }
 
     public static void GotoTopOfScreen() {
