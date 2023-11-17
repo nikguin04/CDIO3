@@ -15,4 +15,18 @@ public class Game_Functions {
             
         }
     }
+
+    public static final int scoreBoardOffset = 30;
+    public static void PrintScoreBoard() {
+        System.out.print(GameData.escapeChar + "[s"); // Save cursor position
+        System.out.print(GameData.escapeChar + "[H"); // Home cursor
+
+        for (int i = 0; i < Game.players.length; i++) {
+            Player p = Game.players[i];
+            System.out.print(GameData.escapeChar + "[" + scoreBoardOffset + "G"); // Move cursor to scoreBoardOffset on current line
+            System.out.println(p.GetColoredName() + " $" + p.account.GetMoney());
+        }
+
+        System.out.print(GameData.escapeChar + "[u"); // Return cursor to saved state
+    }
 }
