@@ -25,6 +25,7 @@ public class Game {
     public static void StartGame() {
         GameData.ClearScreen();
         Game_Functions.PrintGame();
+        Game_Functions.PrintScoreBoard();
         Dice dice = new Dice(1, 6);
         while (true) {
             for (int i = 0; i < players.length; i++) {
@@ -45,6 +46,7 @@ public class Game {
 
                 GameData.GotoTopOfScreen();
                 Game_Functions.PrintGame();
+                Game_Functions.PrintScoreBoard();
             }
         }
     }
