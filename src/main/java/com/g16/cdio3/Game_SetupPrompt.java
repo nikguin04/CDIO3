@@ -13,7 +13,7 @@ public class Game_SetupPrompt {
                 Game.players = new Player[playerCount];
                 int startMoney = 20 - (playerCount-2) * 2; // 2 = 20, 3 = 18, 4 = 16
                 for (int i = 0; i < playerCount; i++) {
-                    Game.players[i] = new Player(String.format("Player %d", i+1), startMoney);
+                    Game.players[i] = new Player(String.format("Player %d", i+1), startMoney, i);
                 }
             }
         }

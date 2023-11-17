@@ -8,10 +8,10 @@ public class Player {
     private int color = -1; // 0 = Red, 1 = Blue, 2 = Green, 3 = Yellow
     public final int playerId;
 
-    public Player(String _name, int _money) {
+    public Player(String _name, int _money, int _playerId) {
         name = _name;
         account = new Account(_money);
-        playerId = (Game.players != null) ? Game.players.length : 0;
+        playerId = _playerId;
 
     }
 

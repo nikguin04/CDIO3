@@ -75,7 +75,7 @@ public class GameTest {
         Game.scanner = new Scanner(System.in);
         Game.scanner.useLocale(Locale.ENGLISH);
 
-        Game.players = new Player[] {new Player("Player 1", 10)};
+        Game.players = new Player[] {new Player("Player 1", 10, 0)};
         Game_SetupPrompt.Prompt_PlayerColors();
 
         Assert.assertEquals(2, Game.players[0].GetColor());
