@@ -69,11 +69,11 @@ public class Player {
         return color;
     }
 
-    public void buyProperty(int playerIndex, BoardSquare_Place squareToBuy) {
+    public void buyProperty(BoardSquare_Place squareToBuy) {
         // TODO make changes for boardSquare_Place if needed.
         
         // Set owner of boardSquare
-        squareToBuy.SetOwner(playerIndex);
+        squareToBuy.SetOwner(this.playerId);
 
         // Remove money from player
         this.account.ModifyMoney(-squareToBuy.squarePrice);

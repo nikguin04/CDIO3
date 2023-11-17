@@ -77,15 +77,16 @@ public class PlayerTest {
     // Test for the buyProperty method in Player
     @Test
     public void buyPropertyTest() {
+        Game.players = new Player[0];
         Player player = new Player("ThisIsAName", 20);
-        int playerIndex = 1;
+
         BoardSquare_Place propertyToBuy = new BoardSquare_Place("Candy Store", 1, 5, "Bright Blue",
                 GameData.escapeChar + "[94m");
 
         player.SetPosition(4);
-        player.buyProperty(playerIndex, propertyToBuy);
+        player.buyProperty(propertyToBuy);
 
-        Assert.assertEquals(propertyToBuy.GetOwner(), playerIndex);
+        Assert.assertEquals(propertyToBuy.GetOwner(), 0);
         Assert.assertTrue(propertyToBuy.isOwned());
         Assert.assertEquals(player.account.GetMoney(), (20 - propertyToBuy.squarePrice));
     }
