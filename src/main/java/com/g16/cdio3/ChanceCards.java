@@ -150,7 +150,8 @@ class ChanceGetOutOfJail extends ChanceCard {
         return "Keep this card and use if when you are in jail";
     }
     public void ChanceEffect(int playerIndex) {
-        // make this.
+        // this need to be made.
+        // Game.players[playerIndex].
     }
 }
 
