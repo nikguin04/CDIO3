@@ -11,7 +11,23 @@ public class ChanceCards {
     public static ChanceCard[] chanceCards = {
         new Chance_MoveToStart(),
         new Chance_BirthdayCard(),
-        new ChanceMove5()
+        new ChanceMove5(),
+        new ChanceMoveToOrange(),
+        new ChanceMove1TileORTakeAnother(),
+        new ChanceToTheShip(),
+        new ChanceToMuchCandy(),
+        new ChanceMoveToOrangeOrGreen(),
+        new ChanceFreeTile(),
+        new ChanceGetOutOfJail(),
+        new ChanceTheBeachPromenade(),
+        new ChanceCat(),
+        new ChanceDog(),
+        new ChanceMoveToPinkOrBlue(),
+        new ChanceDoneYourHomework(),
+        new ChanceRedTile(),
+        new ChanceGreeSkatepark(),
+        new ChanceGetLightBlueOrRed(),
+        new ChanceBrownOrYellow()
     };  
 }
 
