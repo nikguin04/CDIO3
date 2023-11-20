@@ -210,7 +210,7 @@ class ChanceDoneYourHomework extends ChanceCard {
         return "You have done your homework you get 2M from the bank.";
     }
     public void ChanceEffect(int playerIndex){
-        // make this.s
+        Game.players[playerIndex].account.ModifyMoney(2);
     }
 }
 
