@@ -51,11 +51,11 @@ public class Game {
                 System.out.println(" and landed on: " + ((landedSquare.getClass() != BoardSquare_Place.class) ? landedSquare.GetSquareName() : ((BoardSquare_Place)landedSquare).GetColoredName()));
                 landedSquare.TileEffect(i);
 
-                if (!gameOver) {
-                    GameData.GotoTopOfScreen();
-                    Game_Functions.PrintGame();
-                    Game_Functions.PrintScoreBoard();
-                } else {
+                GameData.GotoTopOfScreen();
+                Game_Functions.PrintGame();
+                Game_Functions.PrintScoreBoard();
+                if (gameOver) {
+                    GameData.MoveDownLines(players.length+1);
                     break;
                 }
             }

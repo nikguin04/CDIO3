@@ -46,6 +46,10 @@ public class GameData { // https://ss64.com/nt/syntax-ansi.html
         System.out.print(escapeChar+"[H");// JUMP TO TOP OF SCREEN
     }
 
+    public static void MoveDownLines(int lines) {
+        System.out.print(escapeChar + "[" + String.valueOf(lines) + "B");
+    }
+
     public static int WaitForInt() {
         while (true) {
             String ln = Game.scanner.nextLine();
