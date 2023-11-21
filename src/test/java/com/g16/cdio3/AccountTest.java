@@ -22,9 +22,11 @@ public class AccountTest {
 
     @Test
     public void TestNegative() {
-        Account account = new Account(1000, 0);
-        Assert.assertFalse(account.ModifyMoney(-4000));
-        Assert.assertEquals(-3000, account.GetMoney());
+        Game.players = new Player[] {new Player("name1", 1000, 0)}; // Setup for lose logic getting called
+        Game.players[0].SetColor(0); // Setup for lose logic getting called
+
+        Assert.assertFalse(Game.players[0].account.ModifyMoney(-4000));
+        Assert.assertEquals(-3000, Game.players[0].account.GetMoney());
     }
 
 
