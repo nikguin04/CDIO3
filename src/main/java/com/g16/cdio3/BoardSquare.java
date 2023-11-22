@@ -76,7 +76,11 @@ class BoardSquare_Place implements BoardSquare {
 class BoardSquare_Chance implements BoardSquare {
 
     public void TileEffect(int playerIndex) {
-
+        ChanceCard chanceCard = ChanceCards.chanceCards[(int)(Math.random() * ChanceCards.chanceCards.length)];
+        System.out.println(chanceCard.getCardName());
+        System.out.println(chanceCard.getCardDescription());
+        chanceCard.ChanceEffect(playerIndex);
+        return;
     }
 
     public String GetSquareName() {
