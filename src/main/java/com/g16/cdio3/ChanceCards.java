@@ -98,6 +98,7 @@ class ChanceMoveToOrange extends ChanceCard {
             Game.players[playerIndex].SetPosition(10);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(11);
+            
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
