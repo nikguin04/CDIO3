@@ -31,7 +31,7 @@ public class ChanceCards {
 
 class Chance_MoveToStart extends ChanceCard {
     public String getCardName() {return "Move to start";}
-    public String getCardDescription() {return "Move to start, and receive 2 Monopoly money!";}
+    public String getCardDescription() {return "Move to start, and receive $2";}
     public void ChanceEffect(int playerIndex) {
         Game.players[playerIndex].SetPosition(0);
         Game.players[playerIndex].account.ModifyMoney(2);
@@ -40,7 +40,7 @@ class Chance_MoveToStart extends ChanceCard {
 
 class Chance_BirthdayCard extends ChanceCard {
     public String getCardName() {return "Birthday card";}
-    public String getCardDescription() {return "Happy birthday! Everyone gives you 1 Monopoly money!";}
+    public String getCardDescription() {return "Happy birthday! Everyone gives you $1";}
     public void ChanceEffect(int playerIndex) {
         for (int i = 0; i < Game.players.length; i++) {
             Player player = Game.players[i];
@@ -64,10 +64,10 @@ class ChanceMove5 extends ChanceCard {
     public void ChanceEffect(int playerIndex){
         // func for the player to move up to five tiles
         System.out.println("Input the amount of tiles you want to move up to 5 tiles");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         Game.players[playerIndex].AddToPosition(move);
-        input.close();
+        
     }
 }
 
@@ -81,14 +81,14 @@ class ChanceMoveToOrange extends ChanceCard {
     public void ChanceEffect(int  playerIndex) {       
         System.out.println("1. " + Board.getSquare(10).GetSquareName() + " 2. " +  Board.getSquare(11).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(10);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(11);
         }
-        input.close();
+        
     }
 }
 
@@ -103,14 +103,14 @@ class ChanceMove1TileORTakeAnother extends ChanceCard {
     public void ChanceEffect(int playerIndex) {
         //Func for the chosing of moveing 1 tile or take a new chance card.
         System.out.println("Input 1 to move 1 tile or 2 to take a new chance card");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].AddToPosition(1);
         } else if (move == 2) {
             // TODO
         }
-        input.close();
+        
     }
 }
 
@@ -119,7 +119,7 @@ class ChanceToMuchCandy extends ChanceCard{
         return "Too much candy";
     }
     public String getCardDescription() {
-        return "You ate too much candy. Pay the bank 2 M.";
+        return "You ate too much candy. Pay the bank $2";
     }
     public void ChanceEffect(int playerIndex) {
         Game.players[playerIndex].account.ModifyMoney(-2);
@@ -137,7 +137,7 @@ class ChanceMoveToOrangeOrGreen extends ChanceCard {
         // 19, 20
         System.out.println("1. " + Board.getSquare(10).GetSquareName() + " 2. " +  Board.getSquare(11).GetSquareName() + " 3." + Board.getSquare(19).GetSquareName() + " 4." + Board.getSquare(20).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(10);
@@ -148,7 +148,7 @@ class ChanceMoveToOrangeOrGreen extends ChanceCard {
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(20);
         }
-        input.close();
+        
     }
 }
 
@@ -162,14 +162,14 @@ class ChanceFreeTile extends ChanceCard {
     public void ChanceEffect(int playerIndex){
         System.out.println("1. " + Board.getSquare(4).GetSquareName() + " 2. " +  Board.getSquare(5).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(4);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(5);
         }
-        input.close();
+        
     }
 }
 
@@ -196,7 +196,7 @@ class ChanceMoveToPinkOrBlue extends ChanceCard {
         // 7,8,23, 22,
         System.out.println("1. " + Board.getSquare(7).GetSquareName() + " 2. " +  Board.getSquare(8).GetSquareName() + " 3." + Board.getSquare(22).GetSquareName() + " 4." + Board.getSquare(23).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(7);
@@ -207,7 +207,7 @@ class ChanceMoveToPinkOrBlue extends ChanceCard {
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(23);
         }
-        input.close();
+        
     }
 }
 
@@ -216,7 +216,7 @@ class ChanceDoneYourHomework extends ChanceCard {
         return "Get 2 M.";
     }
     public String getCardDescription(){
-        return "You have done your homework you get 2M from the bank.";
+        return "You have done your homework you get $2 from the bank.";
     }
     public void ChanceEffect(int playerIndex){
         Game.players[playerIndex].account.ModifyMoney(2);
@@ -234,14 +234,14 @@ class ChanceRedTile extends ChanceCard {
         //13,14
         System.out.println("1. " + Board.getSquare(13).GetSquareName() + " 2. " +  Board.getSquare(14).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(13);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(14);
         }
-        input.close();
+        
     }
 }
 
@@ -273,7 +273,7 @@ class ChanceGetLightBlueOrRed extends ChanceCard {
         // 4,5,13,14
         System.out.println("1. " + Board.getSquare(4).GetSquareName() + " 2. " +  Board.getSquare(5).GetSquareName() + " 3." + Board.getSquare(13).GetSquareName() + " 4." + Board.getSquare(14).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(4);
@@ -284,7 +284,7 @@ class ChanceGetLightBlueOrRed extends ChanceCard {
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(14);
         }
-        input.close();
+        
     }
 }
 
@@ -299,7 +299,7 @@ class ChanceBrownOrYellow extends ChanceCard{
         // 1,2,13,14
         System.out.println("1. " + Board.getSquare(1).GetSquareName() + " 2. " +  Board.getSquare(2).GetSquareName() + " 3." + Board.getSquare(13).GetSquareName() + " 4." + Board.getSquare(14).GetSquareName());
         System.out.println("Input the tile you want to move to");
-        Scanner input = new Scanner(System.in);
+        Scanner input = Game.scanner;
         int move = input.nextInt();
         if (move == 1) {
             Game.players[playerIndex].SetPosition(1);
@@ -310,7 +310,7 @@ class ChanceBrownOrYellow extends ChanceCard{
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(14);
         }
-        input.close();
+        
     }
 }
 
