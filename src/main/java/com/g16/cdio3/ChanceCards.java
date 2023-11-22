@@ -31,7 +31,7 @@ public class ChanceCards {
 
 class Chance_MoveToStart extends ChanceCard {
     public String getCardName() {return "Move to start";}
-    public String getCardDescription() {return "Move to start, and receive 2 Monopoly money!";}
+    public String getCardDescription() {return "Move to start, and receive $2";}
     public void ChanceEffect(int playerIndex) {
         Game.players[playerIndex].SetPosition(0);
         Game.players[playerIndex].account.ModifyMoney(2);
@@ -40,7 +40,7 @@ class Chance_MoveToStart extends ChanceCard {
 
 class Chance_BirthdayCard extends ChanceCard {
     public String getCardName() {return "Birthday card";}
-    public String getCardDescription() {return "Happy birthday! Everyone gives you 1 Monopoly money!";}
+    public String getCardDescription() {return "Happy birthday! Everyone gives you $1";}
     public void ChanceEffect(int playerIndex) {
         getCardName();
         getCardDescription();
@@ -142,7 +142,7 @@ class ChanceToMuchCandy extends ChanceCard{
         return "Too much candy";
     }
     public String getCardDescription() {
-        return "You ate too much candy. Pay the bank 2 M.";
+        return "You ate too much candy. Pay the bank $2";
     }
     public void ChanceEffect(int playerIndex) {
         Game.players[playerIndex].account.ModifyMoney(-2);
@@ -265,7 +265,7 @@ class ChanceDoneYourHomework extends ChanceCard {
         return "Get 2 M.";
     }
     public String getCardDescription(){
-        return "You have done your homework you get 2M from the bank.";
+        return "You have done your homework you get $2 from the bank.";
     }
     public void ChanceEffect(int playerIndex){
         Game.players[playerIndex].account.ModifyMoney(2);
