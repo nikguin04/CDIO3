@@ -8,10 +8,10 @@ public class ChanceCardsTest {
     @Test
     public void TestChanceCardArrayIndexing() {
         Assert.assertEquals("Move to start", ChanceCards.chanceCards[0].getCardName());
-        Assert.assertEquals("Move to start, and receive 2 Monopoly money!", ChanceCards.chanceCards[0].getCardDescription());
+        Assert.assertEquals("Move to start, and receive $2", ChanceCards.chanceCards[0].getCardDescription());
 
         Assert.assertEquals("Birthday card", ChanceCards.chanceCards[1].getCardName());
-        Assert.assertEquals("Happy birthday! Everyone gives you 1 Monopoly money!", ChanceCards.chanceCards[1].getCardDescription());
+        Assert.assertEquals("Happy birthday! Everyone gives you $1", ChanceCards.chanceCards[1].getCardDescription());
     }
 
     @Test
