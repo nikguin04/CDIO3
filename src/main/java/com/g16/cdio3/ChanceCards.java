@@ -96,8 +96,18 @@ class ChanceMoveToOrange extends ChanceCard {
             }
              if (move == 1) {
             Game.players[playerIndex].SetPosition(10);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(11);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
             
         }
         } catch (Exception e) {
@@ -124,11 +134,16 @@ class ChanceMove1TileORTakeAnother extends ChanceCard {
         try {
             if (move > 2 || move < 1) {
                 throw new Exception("Enter a number between 1 and 2");
+                
             }
                     if (move == 1) {
             Game.players[playerIndex].AddToPosition(1);
         } else if (move == 2) {
-            // TODO
+            ChanceCard chanceCard = ChanceCards.chanceCards[(int)(Math.random() * ChanceCards.chanceCards.length)];
+            System.out.println(chanceCard.getCardName());
+            System.out.println(chanceCard.getCardDescription());
+            chanceCard.ChanceEffect(playerIndex);
+            
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -169,12 +184,32 @@ class ChanceMoveToOrangeOrGreen extends ChanceCard {
             }
             if (move == 1) {
             Game.players[playerIndex].SetPosition(10);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(11);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 3) {
             Game.players[playerIndex].SetPosition(19);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(20);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
             Game.players[playerIndex].AddToPosition(move);
         } catch (Exception e) {
@@ -184,6 +219,24 @@ class ChanceMoveToOrangeOrGreen extends ChanceCard {
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 class ChanceFreeTile extends ChanceCard {
     public String getCardName(){
@@ -203,8 +256,18 @@ class ChanceFreeTile extends ChanceCard {
             }
             if (move == 1) {
             Game.players[playerIndex].SetPosition(4);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(5);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -234,7 +297,6 @@ class ChanceMoveToPinkOrBlue extends ChanceCard {
         return "Move to a pink or a darkblue tile. If its available then you get it for free, else you pay the landlord.";
     }
     public void ChanceEffect(int playerIndex){
-        // 7,8,23, 22,
         System.out.println("1. " + Board.getSquare(7).GetSquareName() + " 2. " +  Board.getSquare(8).GetSquareName() + " 3." + Board.getSquare(22).GetSquareName() + " 4." + Board.getSquare(23).GetSquareName());
         System.out.println("Input the tile you want to move to");
         int move = Game.scanner.nextInt(); 
@@ -245,12 +307,32 @@ class ChanceMoveToPinkOrBlue extends ChanceCard {
             }
                     if (move == 1) {
             Game.players[playerIndex].SetPosition(7);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(8);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 3) {
             Game.players[playerIndex].SetPosition(22);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(23);
+                BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -292,8 +374,18 @@ class ChanceRedTile extends ChanceCard {
             }
                     if (move == 1) {
             Game.players[playerIndex].SetPosition(13);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(14);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -302,23 +394,6 @@ class ChanceRedTile extends ChanceCard {
 
     }
 }
-
-// class ChanceGreeSkatepark extends ChanceCard{
-//     public String getCardName(){
-//         return "Get Skatepark for free";
-//     }
-//     public String getCardDescription(){
-//         return "Move to the SkatePark to do the perfect grind. If no one owneds it then you get it for free, else you pay the landlord.";
-//     }
-//     public void ChanceEffect(int playerIndex) {
-//         Game.players[playerIndex].SetPosition(10);
-//         // if(Game.Board.getSquare(10).GetOwner() == null){
-//         //     Game.players[playerIndex].account.ModifyMoney(-Game.Board.getSquare(10).GetPrice());
-//         //     Game.Board.getSquare(10).SetOwner(Game.players[playerIndex]);
-//         // }
-//         //TODO
-//     }
-// }
 
 class ChanceGetLightBlueOrRed extends ChanceCard {
     public String getCardName(){
@@ -339,21 +414,39 @@ class ChanceGetLightBlueOrRed extends ChanceCard {
             }
                     if (move == 1) {
             Game.players[playerIndex].SetPosition(4);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(5);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 3) {
             Game.players[playerIndex].SetPosition(13);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(14);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             ChanceEffect(playerIndex);
         }
-
     }
 }
-
 class ChanceBrownOrYellow extends ChanceCard{
     public String getCardName(){
         return "Free tile for brown or red.";
@@ -362,7 +455,6 @@ class ChanceBrownOrYellow extends ChanceCard{
         return "Move to a brown or red tile. If its available then you get it for free, else you pay the landlord.";
     }
     public void ChanceEffect(int playerIndex){
-        // 1,2,13,14
         System.out.println("1. " + Board.getSquare(1).GetSquareName() + " 2. " +  Board.getSquare(2).GetSquareName() + " 3." + Board.getSquare(13).GetSquareName() + " 4." + Board.getSquare(14).GetSquareName());
         System.out.println("Input the tile you want to move to");
         int move = Game.scanner.nextInt(); 
@@ -373,18 +465,36 @@ class ChanceBrownOrYellow extends ChanceCard{
             }
                     if (move == 1) {
             Game.players[playerIndex].SetPosition(1);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 2) {
             Game.players[playerIndex].SetPosition(2);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 3) {
             Game.players[playerIndex].SetPosition(13);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         } else if (move == 4) {
             Game.players[playerIndex].SetPosition(14);
+             BoardSquare_Place square = (BoardSquare_Place) Board.getSquare(Game.players[playerIndex].GetPosition());
+                if(square.isOwned() == false){
+                    Game.players[playerIndex].account.ModifyMoney(square.squarePrice);
+                }
+                square.TileEffect(playerIndex);
         }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             ChanceEffect(playerIndex);
         }
-
     }
 }
-
